@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rationale&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    font-family: Inter, sans-serif;
+    --background_color: #FCFAFA;
+    --main_font_color: #222222;
+    --menu_font_color: #7D8491;
+    --viewport_height: 100vh;
+}
+
+body {
+    background-color: var(--background_color);
+    min-height: 1000px;
+    color: var(--main_font_color);
+}
+
+main {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 64%;
+    margin-inline: auto;
+    top: calc(var(--viewport_height) * .3);
+}
+
+main > section {
+    width: 100%;
+    margin-bottom: calc(var(--viewport_height) * .25);
+}
+
+#anthony_section h1 {
+    font-family:  Rationale, serif;
+    font-weight: 300;
+    font-size: 96px;
+}
+
+main > section > p {
+    font-size: 32px;
+    text-align: justify;
+    margin-bottom: 50px;
+}
+
+#external_links {
+    background-color: var(--background_color);
+    float: right;
+    z-index: 1;
+    position: sticky;
+    height: 65px;
+    top: 0px;
+    right: 25px;
+    width: 200px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-right: 25px;
+    align-items: end;
+}
+
+.icon {
+    height: 40px;
+    width: 40px;
+}
+
+.linkedin_icon {
+    background: url(icons/Linkedin_logo.svg) no-repeat center/100%;
+}
+.linkedin_icon:hover, .linkedin_icon:active {
+    background: url(icons/Linkedin_logo_highlighted.svg) no-repeat center/100%;
+}
+
+.github_icon {
+    background: url(icons/Github_logo.svg) no-repeat center/100%;
+}
+.github_icon:hover, .github_icon:active {
+    background: url(icons/Github_logo_highlighted.svg) no-repeat center/100%;
+}
+
+.mail_icon {
+    background: url(icons/mail_logo.svg) no-repeat center/100%;
+}
+.mail_icon:hover, .mail_icon:active {
+    background: url(icons/mail_logo_highlighted.svg) no-repeat center/100%;
+}
+
+#external_links > a > img:hover {
+    filter: invert(54%) sepia(4%) saturate(1001%) hue-rotate(181deg) brightness(94%) contrast(88%);
+}
+
+#internal_links {
+    margin-top: -65px;
+    position: sticky;
+    list-style: none;
+    font-size: 28px;
+    top: 25px;
+}
+
+#internal_links > li > a {
+    color: var(--menu_font_color);
+}
+
+#internal_links > li > a:hover {
+    color: var(--main_font_color);
+}
+
+#internal_links li:not(:last-child) {
+    margin-bottom: 17px;
+}
+
+#anthony_section > p {
+    margin-left: 115px;
+}
