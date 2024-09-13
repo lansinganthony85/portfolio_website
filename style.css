@@ -1,5 +1,11 @@
+/*
+    Two fonts are used taken from Google Fonts: Rationale for the first h1 and Inter for everything else
+*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rationale&display=swap');
 
+/*
+    Just some basic resetting of the elements.
+*/
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -9,58 +15,53 @@
 }
 
 body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+    line-height: 1.2;
 }
 
-img, picture, video, canvas, svg {
+img, svg {
     display: block;
     max-width: 100%;
-}
-
-input, button, textarea, select {
-    font: inherit;
 }
 
 a {
     text-decoration: none;
 }
 
+/* Reset ending here */
+
 :root {
-    font-family: Inter, sans-serif;
     --background_color: #FCFAFA;
     --main_font_color: #222222;
     --menu_font_color: #7D8491;
-    --viewport_height: 100vh;
 }
 
 body {
+    font-family: Inter, sans-serif;
     background-color: var(--background_color);
-    min-height: 1000px;
     color: var(--main_font_color);
 }
 
 main {
-    position: absolute;
-    left: 0;
-    right: 0;
     width: 64%;
-    margin-inline: auto;
-    top: calc(var(--viewport_height) * .3);
+    margin: auto;
+    margin-top: -300px;
 }
 
 main > section {
+    height: 100vh;
+    display: flex;
     width: 100%;
-    margin-bottom: calc(var(--viewport_height) * .25);
+    flex-direction: column;
+    justify-content: center;
 }
 
 #anthony_section h1 {
     font-family:  Rationale, serif;
     font-weight: 300;
-    font-size: 96px;
+    font-size: 80px;
 }
 
-main > section > p {
+#anthony_section p, #about_section p {
     font-size: 32px;
     text-align: justify;
     margin-bottom: 50px;
@@ -71,10 +72,10 @@ main > section > p {
     float: right;
     z-index: 1;
     position: sticky;
-    height: 65px;
+    height: 100px;
     top: 0px;
     right: 25px;
-    width: 200px;
+    width: 85%;
     display: flex;
     justify-content: flex-end;
     gap: 15px;
@@ -83,8 +84,8 @@ main > section > p {
 }
 
 .icon {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
 }
 
 .linkedin_icon {
@@ -116,8 +117,9 @@ main > section > p {
     margin-top: -65px;
     position: sticky;
     list-style: none;
-    font-size: 28px;
+    font-size: 32px;
     top: 25px;
+    width: 15%;
 }
 
 #internal_links > li > a {
@@ -129,9 +131,20 @@ main > section > p {
 }
 
 #internal_links li:not(:last-child) {
-    margin-bottom: 17px;
+    margin-bottom: 30px;
 }
 
 #anthony_section > p {
-    margin-left: 115px;
+    margin-left: 5%;
 }
+
+/* #anthony_section, #about_section {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity .5s ease-out, transform 0.5s ease-out;
+}
+
+#anthony_section.show, #about_section.show {
+    opacity: 1;
+    transform: translateX(0);
+} */
