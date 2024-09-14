@@ -33,6 +33,7 @@ a {
     --background_color: #FCFAFA;
     --main_font_color: #222222;
     --menu_font_color: #7D8491;
+    --button_highlight: #DAd9d9;
 }
 
 body {
@@ -44,7 +45,9 @@ body {
 main {
     width: 64%;
     margin: auto;
-    margin-top: -300px;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-400px);
 }
 
 main > section {
@@ -114,37 +117,63 @@ main > section {
 }
 
 #internal_links {
-    margin-top: -65px;
     position: sticky;
     list-style: none;
     font-size: 32px;
-    top: 25px;
+    top: 50px;
     width: 15%;
-}
-
-#internal_links > li > a {
-    color: var(--menu_font_color);
-}
-
-#internal_links > li > a:hover {
-    color: var(--main_font_color);
-}
-
-#internal_links li:not(:last-child) {
-    margin-bottom: 30px;
+    z-index: 1;
 }
 
 #anthony_section > p {
     margin-left: 5%;
 }
 
-/* #anthony_section, #about_section {
-    opacity: 0;
-    transform: translateX(20px);
-    transition: opacity .5s ease-out, transform 0.5s ease-out;
+#nav_button {
+    background: url(icons/menu.png) center/100% no-repeat;
+    visibility: hidden;
+    height: 50px;
+    width: 50px;
 }
 
-#anthony_section.show, #about_section.show {
-    opacity: 1;
-    transform: translateX(0);
-} */
+#nav_menu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    visibility: visible;
+    transform: translateY(-50px);
+}
+
+#nav_menu a {
+    color: var(--menu_font_color);
+}
+
+#nav_menu > a:hover, #nav_menu > a:active {
+    color: var(--main_font_color);
+}
+
+@media(width <= 1200px) {
+    #nav_menu {
+        background-color: var(--background_color);
+        border: 3px solid var(--button_highlight);
+        visibility: hidden;
+        width: 100%;
+        position: absolute;
+        top: 100px;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    #nav_button {
+        visibility: visible;
+    }
+
+    #internal_links {
+        width: 200px;
+    }
+
+    main {
+        transform: translateY(0);
+    }
+
+}
