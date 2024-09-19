@@ -6,11 +6,32 @@ const main_element = document.querySelector("main");
 const main_section = document.getElementById("anthony_section");
 const about_section = document.getElementById("about_section");
 const nav_menu = document.getElementById("nav_menu");
+const project_tabs = document.querySelectorAll(".project_tab");
 
 // Get button for navigation
 const nav_button = document.getElementById("nav_button");
 const nav_button_event = new Event("menutrigger");
 var nav_button_active = false;
+
+project_tabs.forEach(function (element) {
+    element.addEventListener("click", () => {
+        clearProjectSelection();
+        element.setAttribute("style", "border: solid 3px var(--focus_color)");
+        element.childNodes[3].style.visibility = "visible";
+    });
+
+    element.addEventListener("mouseover", () => {
+        clearProjectSelection();
+        element.childNodes[3].style.visibility = "visible";
+    });
+});
+
+function clearProjectSelection() {
+    project_tabs.forEach(function (element) {
+        element.setAttribute("style", "border: none");
+        element.childNodes[3].style.visibility = "hidden";
+    });
+}
 
 nav_button.addEventListener("menutrigger", () => {
     if(nav_button_active) {
@@ -22,8 +43,6 @@ nav_button.addEventListener("menutrigger", () => {
         nav_button.style.background = "url(icons/menu.png) center/100% no-repeat";
     }
 });
-
-//nav_menu.addEventListener("click", triggerNavButton);
 
 nav_button.addEventListener("click", triggerNavButton);
 
