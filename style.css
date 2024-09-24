@@ -33,8 +33,9 @@ a {
     --background_color: #FCFAFA;
     --main_font_color: #222222;
     --menu_font_color: #7D8491;
-    --button_highlight: #DAd9d9;
+    --button_highlight: #DAD9D9;
     --focus_color: #3F88C5;
+    --link_color: #DA4167;
 }
 
 body {
@@ -58,13 +59,13 @@ main > section {
     justify-content: center;
 }
 
-#anthony_section h1 {
+main > section > h1 {
     font-family:  Rationale, serif;
     font-weight: 300;
     font-size: 80px;
 }
 
-#anthony_section p, #about_section p {
+main > section > p, main > section > p {
     font-size: 32px;
     text-align: justify;
     margin-bottom: 50px;
@@ -129,15 +130,7 @@ main > section {
     z-index: 1;
 }
 
-#anthony_section {
-    scroll-margin-top: 150px;
-}
-
-#about_section {
-    scroll-margin-top: 150px;
-}
-
-#anthony_section > p {
+main > section > p {
     margin-left: 5%;
 }
 
@@ -168,23 +161,30 @@ main > section {
     color: var(--main_font_color);
 }
 
-#projects_section {
+a.active {
+    color: var(--main_font_color) !important;
+}
+
+#projects_grid {
     scroll-margin-top: 150px;
-    flex-flow: row wrap;
-    align-content: flex-start;
+    display: grid;
+    align-content: start;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 36px;
 }
 
 .project_tab {
     background-color: white;
     box-shadow: 2px 2px 4px black;
-    width: 500px;
     border-radius: 7px;
     align-content: center;
     flex-grow: 1;
     padding: 10px;
     position: relative;
-    outline: none;
+}
+
+.project_tab.active {
+    border: solid 3px var(--focus_color) !important;
 }
 
 .project_tab > img {
@@ -207,15 +207,130 @@ main > section {
     visibility: hidden;
 }
 
+.project_tab:hover .project_caption, .project_caption.active {
+    visibility: visible !important;
+}
+
 .project_tab:focus-visible {
     outline: auto;
     border: solid 3px var(--focus_color);
 }
 
-@media(width <= 1620px) {
-    .project_tab {
-        width: 250px;
-    }
+.project_desc {
+    background-color: var(--button_highlight);
+    color: var(--main_font_color);
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+
+.project_desc h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+dd {
+    display: list-item;
+    list-style: square;
+    margin-left: 20px;
+}
+
+.project_desc p {
+    width: 70%;
+}
+
+.project_details {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.article_bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.article_bottom .github_icon:hover, .article_bottom .github_icon:active {
+    background: url(icons/Github_logo_highlight_dark.svg) no-repeat center/100%;
+}
+
+.article_bottom .icon_desc {
+    justify-self: end;
+}
+
+.skills {
+    display: flex;
+    justify-self: start;
+}
+
+.icon_desc {
+    height: 40px;
+    width: 40px;
+}
+
+#work_section {
+    margin: auto;
+}
+
+#work_container {
+    height: 500px;
+    width: 80%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    align-self: center;
+}
+
+#work_container::-webkit-scrollbar {
+    width: 20px;
+}
+
+#work_container::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+#work_container::-webkit-scrollbar-thumb {
+    background-color: var(--button_highlight);
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+#work_container::-webkit-scrollbar-thumb:hover {
+    background-color: var(--menu_font_color);
+}
+
+.work_entry {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.work_entry:first-child {
+    margin-top: 150px;
+}
+
+.work_year {
+    text-align: center;
+    align-content: center;
+}
+
+.work_title h2 {
+    font-size: 24px;
+    display: inline-block;
+}
+
+.work_title a {
+    white-space: nowrap;
+    color: var(--link_color);
+}
+
+.work_entry ul {
+    font-size: 20px;
 }
 
 @media(width <= 1200px) {
@@ -240,11 +355,15 @@ main > section {
         width: 200px;
     }
 
+    main {
+        width: 90%;
+    }
+
 }
 
 @media(width <= 600px) {
    
-    #anthony_section h1 {
+    main > section h1 {
         font-size: 11vw;
     }
 
@@ -278,4 +397,33 @@ main > section {
     #internal_links {
         width: 150px;
     }
+
+    .work_year, .work_title h2, .work_title a {
+        font-size: 5vw;
+    }
+
+    .work_entry ul {
+        font-size : 4vw;
+    }
+}
+
+@media(width <= 800px) {
+    .project_desc {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project_desc h2 {
+        width: max-content;
+    }
+
+    .project_desc p {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    main > section {
+        margin-bottom: 100px;
+    }
+
 }

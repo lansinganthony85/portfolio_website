@@ -12,20 +12,20 @@
     <nav id="external_links">
         <li id="nav_button"></li>
         <li id="external_buttons">
-            <a href="https://www.linkedin.com/in/lansinganthony85/" class="icon linkedin_icon" alt="Link to LinkedIn"></a>
-            <a href="https://github.com/lansinganthony85" class="icon github_icon" alt="Link to Github"></a>
-            <a href="mailto:lansinganthony85@gmail.com" class="icon mail_icon" alt="Email Anthony Lansing"></a>
+            <a target="_blank" href="https://www.linkedin.com/in/lansinganthony85/" class="icon linkedin_icon" alt="Link to LinkedIn"></a>
+            <a target="_blank" href="https://github.com/lansinganthony85" class="icon github_icon" alt="Link to Github"></a>
+            <a target="_blank" href="mailto:lansinganthony85@gmail.com" class="icon mail_icon" alt="Email Anthony Lansing"></a>
         </li>
     </nav>
 
     <menu id="internal_links">
         <li id="nav_menu">
-            <a href="#anthony_section">Anthony</a>
-            <a href="#about_section">About</a>
-            <a href="#projects_section">Projects</a>
-            <a href="#work_section">Work</a>
-            <a href="#school_section">School</a>
-            <a href="resume_section">Resume</a>
+            <a href="#anthony_section" class="anthony_section active">Anthony</a>
+            <a href="#about_section" class="about_section">About</a>
+            <a href="#projects_section" class="projects_section">Projects</a>
+            <a href="#work_section" class="work_section">Work</a>
+            <a href="#school_section" class="school_section">School</a>
+            <a href="resume_section" class="resume_section">Resume</a>
         </li>
     </menu>
 
@@ -39,7 +39,7 @@
             </p>
         </section>
         <section id="about_section">
-            <h2>About</h2>
+            <h1>About</h1>
             <p>I’m an aspiring software engineer with a decade of experience in writing and editing. I often felt like a square peg 
                 trying to force myself through a round hole so I left the  industry to start fresh on a new career path. After 
                 graduating summa cum laude with an Associate of Science degree in Computer Science, I am ready to hit the ground running 
@@ -47,29 +47,104 @@
             <p>When I am not writing code or learning new skills, I enjoy hikes with my family, tennis, and playing Dungeons and Dragons.</p>
         </section>
         <section id="projects_section">
-            <div class="project_tab">
-                <img src="images/job_website_snapshot.JPG" alt="Picture of this website">
-                <p class="project_caption">This Website!</p>
+            <h1>Projects</h1>
+            <div id="projects_grid">
+                <div class="project_tab">
+                    <img src="images/job_website_snapshot.JPG" alt="Picture of this website">
+                    <p class="project_caption">This Website!</p>
+                </div>
+                <div class="project_tab">
+                    <img src="images/KiRB.jpg" alt="The KiRB Vehicle Module">
+                    <p class="project_caption">KiRB-E Vehicle Module</p>
+                </div>
+                
             </div>
-            <div class="project_tab">
-                <img src="images/KiRB.jpg" alt="The KiRB Vehicle Module">
-                <p class="project_caption">KiRB-E Vehicle Module</p>
+            
+        </section>
+        <section id="work_section">
+            <h1>Work</h1>
+            <div id="work_container">
+                <article class="work_entry">
+                    <div class="work_year">2024</div>
+                    <div class="work_details">
+                        <div class="work_title">
+                            <h2>Teaching Assistant </h2><a target="_blank" href="https://www.monroecc.edu/"> @ Monroe Community College</a>
+                        </div>
+                        <ul>
+                            <li>Supported students' success by providing one-on-one tutoring of C and assembly code.</li>
+                            <li>Designed a lab that demonstrated the functionality of RAM using a simulator.</li>
+                            <li>Aided in the preparation of a new curriculum using a 32-bit ARM Cortex M0+.</li>
+                            <li>Demonstrated strong interpersonal and communication skills while assisting students by breaking down difficult concepts into easy-to-understand terms.</li>
+                            <li>Demonstrated expertise in the 16-bit HCS12 by guiding students through C and assembly code.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="work_entry">
+                    <div class="work_year">2016 - 2023</div>
+                    <div class="work_details">
+                        <div class="work_title">
+                            <h2>QA Workers' Comp Team Leader </h2><a target="_blank" href="https://medsourcenational.com/"> @ MedSource National</a>
+                        </div>
+                        <ul>
+                            <li>Ensured quick 7-day turnarounds of report completions by working directly with doctors and QA peers and adjusting workflows as needed.</li>
+                            <li>Mentored junior QA analysts, improving their technical skills and overall productivity within the team to ensure a greater than 97% accuracy rate.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="work_entry">
+                    <div class="work_year">2016</div>
+                    <div class="work_details">
+                        <div class="work_title">
+                            <h2>Proofreader </h2><a target="_blank" href="https://www.broadridge.com/"> @ Broadridge</a>
+                        </div>
+                        <ul>
+                            <li>Used a broad array of software to copyedit and proofread investor voting instruction cards.</li>
+                            <li>Counseled colleagues on proper grammar, mechanics, and language use as according to the Chicago Manual of Style.</li>
+                            <li>Advised on QA procedures and standard language.</li>
+                        </ul>
+                    </div>
+                </article>
             </div>
-            <div class="project_tab">
-                <img src="" alt="">
-                <p class="project_caption"></p>
-            </div>
-            <div class="project_tab">
-                <img src="" alt="">
-                <p class="project_caption"></p>
-            </div>
-            <div class="project_tab">
-                <img src="" alt="">
-                <p class="project_caption"></p>
-            </div>
-            <div class="project_tab">
-                <img src="" alt="">
-                <p class="project_caption"></p>
+        </section>
+        <section id="school_section">
+            <h1>School</h1>
+        </section>
+        <section id="resume_section">
+            <div id="school_container">
+                <article class="school_entry">
+                    <section class="degree">
+                        <h2>Associate of Science in Computer Science</h2><span>+</span>
+                    </section>
+                    <section class="degree_details">
+                        <div class="college_img">
+                            <a target="_blank" href="https://www.monroecc.edu/"><img src="images/mcc_logo.jpg" alt="Monroe Community College"></a>
+                            <p>2021 - 2024</p>
+                        </div>
+                        <ul>
+                            <li>Graduated <em>Summa Cum Laude</em>.</li>
+                            <li>Consistently made the Dean's List from start to finish.</li>
+                            <li>Served as secretary of the ICT Club and lead in the design and implementation of Lego "Battle Bots" by interfacing with the NXT using C++.</li>
+                        </ul>
+                    </section>
+                </article>
+                <article class="school_entry">
+                    <section class="degree"></section>
+                        <h2>Bachelor of Arts in Linguistics</h2><span>+</span>
+                    </section>
+                    <section class="degree_details">
+                        <div class="college_img"></div>
+                        <ul></ul>
+                    </section>
+                </article>
+                <article class="school_entry">
+                    <section class="degree"></section>
+                        <h2>Master of Science in Creative Writing</h2><span>+</span>
+                    </section>
+                    <section class="degree_details">
+                        <div class="college_img"></div>
+                        <ul></ul>
+                    </section>
+                </article>
             </div>
         </section>
     </main>
