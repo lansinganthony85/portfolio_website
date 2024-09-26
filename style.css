@@ -36,6 +36,7 @@ a {
     --button_highlight: #DAD9D9;
     --focus_color: #3F88C5;
     --link_color: #DA4167;
+    --grid_columns: 1;
 }
 
 body {
@@ -219,7 +220,7 @@ a.active {
 .project_desc {
     background-color: var(--button_highlight);
     color: var(--main_font_color);
-    grid-column: 1 / -1;
+    grid-column: 1 / var(--grid_columns);
     display: flex;
     flex-wrap: wrap;
     padding: 15px;
@@ -270,10 +271,6 @@ dd {
 .icon_desc {
     height: 40px;
     width: 40px;
-}
-
-#work_section {
-    margin: auto;
 }
 
 #work_container {
@@ -333,6 +330,107 @@ dd {
     font-size: 20px;
 }
 
+#school_container {
+    width: 80%;
+    align-self: center;
+}
+
+.school_entry {
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.degree {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background-color: var(--button_highlight);
+    padding: 15px 35px;
+    font-size: 20px;
+}
+
+.degree h2 {
+    align-self: center;
+}
+
+.degree_button {
+    align-self: center;
+    justify-self: end;
+    font-size: 30px;
+}
+
+.degree .degree_button:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.degree_details {
+    display: none;
+    grid-template-columns: 1fr 2fr;
+    padding: 35px;
+    height: fit-content;
+    background-color: white;
+}
+
+.degree_details ul {
+    font-size: 24px;
+}
+
+.college_img {
+    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.college_img a img {
+    margin: auto;
+    width: 70%;
+}
+
+.college_img p {
+    margin-top: auto;
+    font-size: 20px;
+}
+
+#button_container {
+    margin: auto;
+    position: relative;
+}
+
+#button_top {
+    width: 300px;
+    height: 100px;
+    border-radius: 7px;
+    color: white;
+    text-align: center;
+    align-content: center;
+    font-size: 30px;
+    background: radial-gradient(circle at 78%, rgba(114,168,212,1) 0%, rgba(63,136,197,1) 59%, rgba(50,109,158,1) 100%);
+    position: relative;
+    top: 50px;
+    z-index: 2;
+}
+
+#button_top:active {
+    transform: translateY(10px);
+}
+
+#button_top:hover {
+    cursor: pointer;
+}
+
+#button_bottom {
+    width: 300px;
+    height: 100px;
+    background-color: #195181;
+    border-radius: 7px;
+    position: relative;
+    bottom: 40px;
+    z-index: 1;
+    box-shadow: 2px 2px 4px black;
+}
+
+
 @media(width <= 1200px) {
     #nav_menu {
         background-color: var(--background_color);
@@ -362,6 +460,11 @@ dd {
 }
 
 @media(width <= 600px) {
+
+    main > section {
+        height: fit-content;
+        scroll-margin-top: 150px;
+    }
    
     main > section h1 {
         font-size: 11vw;
@@ -373,11 +476,7 @@ dd {
     }
 
     main {
-        transform: translateY(150px);
-    }
-
-    main > section {
-        height:fit-content;
+        transform: translateY(250px);
     }
 
     #nav_menu {
@@ -405,6 +504,36 @@ dd {
     .work_entry ul {
         font-size : 4vw;
     }
+
+    .work_entry ul {
+        font-size: 20px;
+    }
+
+    .degree {
+        font-size: 3vw;
+        padding: 15px;
+    }
+
+    .college_img p {
+        font-size: 3vw;
+    }
+
+    .degree_details ul {
+        font-size: 3vw;
+    }
+
+    .degree_details {
+        padding: 35px 10px;
+    }
+
+    .degree_button {
+        font-size: 6vw;
+    }
+
+    #work_container {
+        width: 100%;
+    }
+
 }
 
 @media(width <= 800px) {
@@ -426,4 +555,26 @@ dd {
         margin-bottom: 100px;
     }
 
+    .college_img a img {
+        width: 90%;
+    }
+
+    .degree_details {
+        flex-direction: column;
+    }
+
+    .college_img {
+        margin-bottom: 10px;
+    }
+
+    .college_img a img {
+        margin-bottom: 10px;
+    }
+
+}
+
+@media(width < 1360px) {
+    .degree_title {
+        display: none;
+    }
 }

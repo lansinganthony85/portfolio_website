@@ -9,6 +9,8 @@ const nav_links = document.querySelectorAll("#nav_menu > a");
 const project_tabs = document.querySelectorAll(".project_tab");
 const projects_section = document.querySelectorAll("#projects_section");
 const work_container = document.getElementById("work_container");
+const school_entries = document.querySelectorAll(".school_entry");
+const projects_grid = document.getElementById("projects_grid");
 
 const sections = document.querySelectorAll("main > section");
 
@@ -42,6 +44,7 @@ function removeCurrentDescription() {
 
 function displayDescription(topPos, index) {
     const description = document.createElement('div');
+    root.style.setProperty("--grid_columns", getGridColumns() + 1)
     description.setAttribute("class", "project_tab project_desc");
 
     for(let i = index; i < project_tabs.length; i++) {
@@ -50,6 +53,16 @@ function displayDescription(topPos, index) {
             break;
         }
     }
+}
+
+function getGridColumns() {
+    const gridValues = window.getComputedStyle(projects_grid).gridTemplateColumns.split(' ');
+    let length = 0;
+    gridValues.forEach(element => {
+        if(element !== '0px')
+            length++;
+    });
+    return length;
 }
 
 function clearProjectSelection() {
@@ -84,6 +97,10 @@ window.addEventListener("resize", () => {
 
     clearProjectSelection();
     removeCurrentDescription();
+
+    school_entries.forEach((element) => {
+        element.querySelector(".degree_details").style.display = "none";
+    });
 });
 
 function triggerNavButton() {
@@ -207,10 +224,27 @@ window.onscroll = function() {
 
 nav_links.forEach((link) => {
     link.addEventListener("click", () => {
+        
         nav_links.forEach((li) => {
             li.classList.remove("active");
         })
-
+        
         link.classList.add("active");
+    });
+});
+
+school_entries.forEach((element) => {
+    const button = element.querySelector(".degree .degree_button");
+    button.addEventListener("click", () => {
+        const content = element.querySelector(".degree_details");
+
+        if(content.style.display === "none" || content.style.display === "") {
+            content.style.display = (window.innerWidth <= 800) ? "flex" : "grid";
+            element.style.border = "solid 3px #222222";
+        }
+        else {
+            content.style.display = "none";
+            element.style.border = "none";
+        }
     });
 });
