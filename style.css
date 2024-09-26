@@ -1,5 +1,5 @@
 /*
-    Two fonts are used taken from Google Fonts: Rationale for the first h1 and Inter for everything else
+    Two fonts are used taken from Google Fonts: Rationale for the h1 headers and Inter for everything else
 */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rationale&display=swap');
 
@@ -27,8 +27,16 @@ a {
     text-decoration: none;
 }
 
+li {
+    list-style: none;
+}
+
 /* Reset ending here */
 
+/*
+    The main variables. There are other colors but they are just used for the resume button at the end.
+    --grid-columns is set to 1 but is updated with javascript whenever project details are shown.
+*/
 :root {
     --background_color: #FCFAFA;
     --main_font_color: #222222;
@@ -66,10 +74,11 @@ main > section > h1 {
     font-size: 80px;
 }
 
-main > section > p, main > section > p {
+main > section > p {
     font-size: 32px;
     text-align: justify;
     margin-bottom: 50px;
+    margin-left: 5%;
 }
 
 #external_links {
@@ -85,16 +94,16 @@ main > section > p, main > section > p {
     align-items: end;
 }
 
-.icon {
-    height: 50px;
-    width: 50px;
-}
-
 #external_buttons {
     justify-self: end;
     display: flex;
     gap: 15px;
     justify-content: flex-end;
+}
+
+.icon {
+    height: 50px;
+    width: 50px;
 }
 
 .linkedin_icon {
@@ -118,10 +127,6 @@ main > section > p, main > section > p {
     background: url(icons/mail_logo_highlighted.svg) no-repeat center/100%;
 }
 
-#external_links > a > img:hover {
-    filter: invert(54%) sepia(4%) saturate(1001%) hue-rotate(181deg) brightness(94%) contrast(88%);
-}
-
 #internal_links {
     position: fixed;
     list-style: none;
@@ -131,19 +136,11 @@ main > section > p, main > section > p {
     z-index: 1;
 }
 
-main > section > p {
-    margin-left: 5%;
-}
-
 #nav_button {
     background: url(icons/menu.png) center/100% no-repeat;
     visibility: hidden;
     height: 50px;
     width: 50px;
-}
-
-#external_links > li {
-    list-style: none;
 }
 
 #nav_menu {
@@ -158,12 +155,12 @@ main > section > p {
     color: var(--menu_font_color);
 }
 
-#nav_menu > a:hover, #nav_menu > a:active {
+#nav_menu > a:hover {
     color: var(--main_font_color);
 }
 
 a.active {
-    color: var(--main_font_color) !important;
+    color: var(--main_font_color) !important; /* Must be !important or its color will not override the default */
 }
 
 #projects_grid {
@@ -217,6 +214,11 @@ a.active {
     border: solid 3px var(--focus_color);
 }
 
+/*
+    --grid-columns is used here. Whenever a project is selected, the current number of columns is calculated
+    using javascript and --grid-columns is updated. This way the length of the description is always the 
+    width of the grid.
+*/
 .project_desc {
     background-color: var(--button_highlight);
     color: var(--main_font_color);
@@ -281,6 +283,9 @@ dd {
     align-self: center;
 }
 
+/*
+    This portion is not widely supported, but the scrollbar shouldn't be too ugly in unsupporting browsers.
+*/
 #work_container::-webkit-scrollbar {
     width: 20px;
 }
@@ -299,6 +304,7 @@ dd {
 #work_container::-webkit-scrollbar-thumb:hover {
     background-color: var(--menu_font_color);
 }
+/* End custom scrollbar */
 
 .work_entry {
     display: grid;
@@ -371,13 +377,8 @@ dd {
     background-color: white;
 }
 
-.degree_details ul {
-    font-size: 24px;
-}
-
 .college_img {
     text-align: center;
-    
     display: flex;
     flex-direction: column;
 }
@@ -430,6 +431,23 @@ dd {
     box-shadow: 2px 2px 4px black;
 }
 
+/*
+    Check for touchscreen and prevent over on the internal nav links
+*/
+@media(hover: none) {
+    #nav_menu > a:hover {
+        color: var(--menu_font_color);
+    }
+}
+
+/*
+    The Degree types condense whenever the screen gets too small.
+*/
+@media(width < 1360px) {
+    .degree_title {
+        display: none;
+    }
+}
 
 @media(width <= 1200px) {
     #nav_menu {
@@ -455,83 +473,6 @@ dd {
 
     main {
         width: 90%;
-    }
-
-}
-
-@media(width <= 600px) {
-
-    main > section {
-        height: fit-content;
-        scroll-margin-top: 150px;
-    }
-   
-    main > section h1 {
-        font-size: 11vw;
-    }
-
-    #anthony_section p, #about_section p {
-        font-size: 6vw;
-        margin-bottom: 6vw;
-    }
-
-    main {
-        transform: translateY(250px);
-    }
-
-    #nav_menu {
-        font-size: 6vw;
-    }
-
-    .icon {
-        height: 40px;
-        width: 40px;
-    }
-
-    #nav_button {
-        height: 40px;
-        width: 40px;
-    }
-
-    #internal_links {
-        width: 150px;
-    }
-
-    .work_year, .work_title h2, .work_title a {
-        font-size: 5vw;
-    }
-
-    .work_entry ul {
-        font-size : 4vw;
-    }
-
-    .work_entry ul {
-        font-size: 20px;
-    }
-
-    .degree {
-        font-size: 3vw;
-        padding: 15px;
-    }
-
-    .college_img p {
-        font-size: 3vw;
-    }
-
-    .degree_details ul {
-        font-size: 3vw;
-    }
-
-    .degree_details {
-        padding: 35px 10px;
-    }
-
-    .degree_button {
-        font-size: 6vw;
-    }
-
-    #work_container {
-        width: 100%;
     }
 
 }
@@ -573,8 +514,64 @@ dd {
 
 }
 
-@media(width < 1360px) {
-    .degree_title {
-        display: none;
+@media(width <= 600px) {
+
+    main > section {
+        height: fit-content;
+        scroll-margin-top: 150px;
     }
+   
+    main > section h1 {
+        font-size: 11vw;
+    }
+
+    #anthony_section p, #about_section p {
+        margin-bottom: 6vw;
+    }
+
+    main {
+        transform: translateY(250px);
+    }
+
+    #nav_menu, .degree_button, #anthony_section p, #about_section p {
+        font-size: 6vw;
+    }
+
+    #nav_button, .icon {
+        height: 40px;
+        width: 40px;
+    }
+
+    #internal_links {
+        width: 150px;
+    }
+
+    .work_year, .work_title h2, .work_title a {
+        font-size: 5vw;
+    }
+
+    .work_entry ul {
+        font-size : 4vw;
+    }
+
+    .work_entry ul {
+        font-size: 20px;
+    }
+
+    .degree {
+        padding: 15px;
+    }
+
+    .college_img p, .degree_details ul, .degree {
+        font-size: 3vw;
+    }
+
+    .degree_details {
+        padding: 35px 10px;
+    }
+
+    #work_container {
+        width: 100%;
+    }
+
 }
