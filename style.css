@@ -476,6 +476,16 @@ dd {
     transition-duration: 0.5s;
 }
 
+footer {
+    font-size: 12px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer a {
+    color: var(--link_color);
+}
+
 /*
     Check for touchscreen and prevent over on the internal nav links
 */
@@ -574,7 +584,7 @@ dd {
         margin-bottom: 6vw;
     }
 
-    main {
+    main, footer {
         transform: translateY(250px);
     }
 
