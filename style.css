@@ -47,6 +47,10 @@ li {
     --grid_columns: 1;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Inter, sans-serif;
     background-color: var(--background_color);
@@ -66,6 +70,7 @@ main > section {
     width: 100%;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 
 main > section > h1 {
@@ -431,6 +436,46 @@ dd {
     box-shadow: 2px 2px 4px black;
 }
 
+.section_button {
+    position: absolute;
+    padding: 12px;
+    margin: 0 auto;
+    height: 6px;
+    width: 200px;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    opacity: .1;
+}
+
+.section_button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50%;
+    width: 51%;
+    background: #222222;
+    transform: skew(0deg, 15deg);
+}
+
+.section_button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50%;
+    width: 50%;
+    background:  #222222;
+    transform: skew(0deg, -15deg);
+}
+
+.section_button:hover {
+    cursor: pointer;
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+
 /*
     Check for touchscreen and prevent over on the internal nav links
 */
@@ -574,4 +619,7 @@ dd {
         width: 100%;
     }
 
+    .section_button {
+        display: none;
+    }
 }
