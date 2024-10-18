@@ -91,7 +91,7 @@ main > section > p {
     float: right;
     z-index: 1;
     position: fixed;
-    height: 100px;
+    height: 60px;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -136,7 +136,7 @@ main > section > p {
     position: fixed;
     list-style: none;
     font-size: 32px;
-    top: 100px;
+    top: 60px;
     width: 15%;
     z-index: 1;
 }
@@ -169,7 +169,7 @@ a.active {
 }
 
 #projects_section {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 60px;
     height: min-content;
 }
 
