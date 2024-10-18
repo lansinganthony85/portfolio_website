@@ -100,6 +100,12 @@ function Description(title, tools, description, languages, github) {
     this.allSkills["css"].setAttribute("class", "icon_desc");
     this.allSkills["javascript"] = getImageElement("icons/javascript.png", "Javascript");
     this.allSkills["javascript"].setAttribute("class", "icon_desc");
+    this.allSkills["java"] = getImageElement('icons/java.png', "Java");
+    this.allSkills["java"].setAttribute("class", "icon_desc");
+    this.allSkills["cpp"] = getImageElement("icons/cpp.png", "C++");
+    this.allSkills["cpp"].setAttribute("class", "icon_desc");
+    this.allSkills["python"] = getImageElement("icons/python.png", "Python");
+    this.allSkills["python"].setAttribute("class", "icon_desc");
 
     // The only public method to return this object as an article element
     this.getDescription = function() {
@@ -182,7 +188,7 @@ function Description(title, tools, description, languages, github) {
      */
     this.getGithub = function () {
         const img_link = document.createElement("a");
-        img_link.href = this.link;
+        img_link.href = this.github;
         img_link.setAttribute("class", "icon_desc github_icon");
         img_link.alt = "Link to Project";
     
@@ -201,7 +207,7 @@ descriptions.push(new Description(
                                     "https://github.com/lansinganthony85/portfolio_website"
                                 ));
 descriptions.push(new Description(
-                                    "KiRB-E Vehicle Module", "CodeWarrior, Dragon12, Arduino", 
+                                    "KiRB-E Vehicle Module", "CodeWarrior, Dragon12, HCS12, Arduino", 
                                     "KiRB-E is a remote-controlled robot that can be used to explore areas that are inaccessible \
                                     or harmful to humans. The robot is piloted by the user with an RF remote control, and will \
                                     periodically record environmental data (ambient temperature and light level) to an FRAM memory \
@@ -214,7 +220,74 @@ descriptions.push(new Description(
                                     "c, assembly", 
                                     "https://github.com/lansinganthony85/dragon12-vehicle-module"
                                 ));
-
+descriptions.push(new Description(
+                                    "Graphical Rock, Paper, Scissors", "IntelliJ, JavaFx",
+                                    "An implementation of a rock, paper, scissors game using JavaFx. This version includes graphical \
+                                    elements including a menu, icons, and animations. This implementation also includes difficulty \
+                                    modes and a chart feature which keeps track of wins and losses.",
+                                    "java",
+                                    "https://github.com/lansinganthony85/Rock-Paper-Scissors"
+                                ));
+descriptions.push(new Description(
+                                    "Lego Battle Bots", "Lego NXT, NXT++, SDL2, Visual Studio Code",
+                                    "This was a project for the ICT Club of which I was the secretary. Using the NXT++ library I was \
+                                    was able to interface with the Lego NXT brick to control robots that I built from Legos. I also used \
+                                    the SDL2 library to take input from Playstation controllers and the robots could be controlled \
+                                    remotely from a computer. As a club we used the robots in a Battle Bot event.",
+                                    "cpp",
+                                    "https://github.com/lansinganthony85/Lego_Battle_Bots"
+                                ));
+descriptions.push(new Description(
+                                    "Py Player", "Visual Studio Code, Pygame, Tkinter",
+                                    "An MP3 player using Pygame and Tkinter to implement the interface. The MP3 player comes with \
+                                    play/pause, stop, forward, and back buttons. There is also a button for searching the computer \
+                                    to find the mp3's you would like to play. Songs that you have selected to play are displayed as a \
+                                    list that can be selected from or, using the buttons, can cycle through.",
+                                    "python",
+                                    "https://github.com/lansinganthony85/Py-Player"
+                                ));
+descriptions.push(new Description(
+                                    "Admin Dashboard", "Visual Studio Code, Git",
+                                    "A simple webpage built using HTML and CSS to mimic the look of a social media homepage. I am \
+                                    not much of a designer so I used the Odin Project's design. You can see the live site by clicking \
+                                    on the Github logo below.",
+                                    "html, css",
+                                    "https://lansinganthony85.github.io/Admin_Dashboard/"
+                                ));
+descriptions.push(new Description(
+                                    "Javascript Calculator", "Visual Studio Code, Git",
+                                    "A basic calculator built using Javascript, HTML, and CSS. This calculator can take upto a \
+                                    12-digit number (not including the sign) and will convert to scientific notation when the answer \
+                                    goes beyond 12 digits in length. There is a 'del' button to remove digits and a clear. This \
+                                    calculator can do 5 operations: add, subtract, multiple, divide, and modulo. You can play \
+                                    around with it by clicking on the Github logo below.",
+                                    "html, css, javascript",
+                                    "https://lansinganthony85.github.io/javascript_calculator/"
+                                ));
+descriptions.push(new Description(
+                                    "Javascript Etch-a-Sketch", "Visual Studio Code, Git",
+                                    "A 500px x 500px grid for drawing an image with your mouse. Whenever you pass over the container, \
+                                    a random color of low opacity is assigned to a square and when the mouse passes over that square \
+                                    again, the color darkens. There are two buttons: one for changing the grid size (anywhere from 1 to \
+                                    100 with 16 as the default) and one that simply clears the container. You can draw on it by \
+                                    clicking on the Github logo below.",
+                                    "html, css, javascript",
+                                    "https://lansinganthony85.github.io/Project-etch-a-sketch/"
+                                ));
+descriptions.push(new Description(
+                                    "Python Runner", "Visual Studio Code, Tkinter, Pygame",
+                                    "A simple python game where the object of the game is to avoid the obstacles for as long as \
+                                    possible by jumping over them.",
+                                    "python",
+                                    "https://github.com/lansinganthony85/Python-Runner"
+                                ));
+descriptions.push(new Description(
+                                    "BirdHunt", "Visual Studio Code, Pygame",
+                                    "A simple python game modeled after Duckhunt on the original NES system. Birds fly across the \
+                                    screen and you must use the arrow keys to aim the scope.",
+                                    "python",
+                                    "https://github.com/lansinganthony85/BirdHunt"
+                                ));
 
 /*
  * The following code is for the functionality of the tabs on the project page.

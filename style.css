@@ -168,8 +168,12 @@ a.active {
     color: var(--main_font_color) !important; /* Must be !important or its color will not override the default */
 }
 
+#projects_section {
+    scroll-margin-top: 100px;
+    height: min-content;
+}
+
 #projects_grid {
-    scroll-margin-top: 150px;
     display: grid;
     align-content: start;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -233,7 +237,7 @@ a.active {
     padding: 15px;
 }
 
-.project_desc h2 {
+.project_desc, .project_desc h2 {
     font-size: 18px;
     margin-bottom: 10px;
 }
@@ -382,6 +386,14 @@ dd {
     background-color: white;
 }
 
+.degree_details ul {
+    font-size: 30px;
+}
+
+.degree_details ul li {
+    list-style: disc;
+}
+
 .college_img {
     text-align: center;
     display: flex;
@@ -448,6 +460,10 @@ dd {
     opacity: .1;
 }
 
+#projects_section > .section_button {
+    bottom: 0px;
+}
+
 .section_button:before {
     content: '';
     position: absolute;
@@ -501,6 +517,15 @@ footer a {
 @media(width < 1360px) {
     .degree_title {
         display: none;
+    }
+
+    .degree_title:nth-child(3) {
+        display: unset;
+        text-transform: uppercase;     
+    }
+
+    .degree_details ul {
+        font-size: 20px;
     }
 }
 
